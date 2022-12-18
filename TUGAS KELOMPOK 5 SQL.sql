@@ -5,7 +5,7 @@
 
 create table User( -- Angga
 	Username varchar(50) not null,
-    primary key(Username),
+    	primary key(Username),
 	No_telpon varchar(20),
 	Nama varchar(50),
 	Password varchar(15),
@@ -15,18 +15,18 @@ create table User( -- Angga
 
 create table pembeli( -- Angga
 	id_pembeli INTEGER,
-    unique key(id_pembeli),
-    Username varchar(50),
-    primary key(Username),
+    	unique key(id_pembeli),
+    	Username varchar(50),
+    	primary key(Username),
 	foreign key (Username)
 	references User(Username)
 );
 
 create table penjual( -- Martvelino
 	Username varchar(50),
-    primary key(Username),
+    	primary key(Username),
 	id_penjual int,
-    unique key(id_penjual),
+    	unique key(id_penjual),
 	foreign key (Username) references
 	User(Username)
 );
@@ -45,7 +45,7 @@ CREATE TABLE Penjual_has_Produk ( -- Hilmi
 	id_penjual INTEGER,
 	id_produk INTEGER,
 	Username VARCHAR(50),
-    foreign key(Username) references User(Username),
+    	foreign key(Username) references User(Username),
 	FOREIGN KEY(id_penjual) REFERENCES penjual(id_penjual),
 	FOREIGN KEY(id_produk) REFERENCES Produk(id_produk)
 );
@@ -58,7 +58,7 @@ CREATE TABLE Pembeli_has_Produk ( -- Dare
 	Username VARCHAR(50),
 	FOREIGN KEY(id_pembeli) REFERENCES pembeli(id_pembeli),
 	FOREIGN KEY(id_produk) REFERENCES Produk(id_produk),
-    foreign key(Username) references User(Username)
+    	foreign key(Username) references User(Username)
 );
 
 CREATE TABLE Toko ( -- HILMI
@@ -83,7 +83,7 @@ CREATE TABLE Toko_has_Produk ( -- Hilmi
 
 create table pembayaran( -- Martvelino
 	id_pembayaran int,
-    primary key(id_pembayaran),
+    	primary key(id_pembayaran),
 	pembeli_user_username varchar(50),
 	pembeli_id_pembeli int,
 	total_pembayaran int,
@@ -110,7 +110,7 @@ create table e_money( -- Ajeng
 
 insert into Toko (id_toko, Username, id_penjual, Nama, Alamat, No_Telpon)
 values (1, 'fathiabrnsa', 9, 'keripik.id', 'jl bukit bunga, genteng, surabaya', '081788999789'),
-	   (2, 'cakaradh', 2, 'sayur.id', 'jl pondoh indah, sawahan, yogyakarta', '082678556778'),
+       (2, 'cakaradh', 2, 'sayur.id', 'jl pondoh indah, sawahan, yogyakarta', '082678556778'),
        (3, 'mgennad0', 5, 'wearme.id', 'jl dekat nadi, lakarsantri, tulungagung','085778998665'),
        (4, 'calistazlf', 7, 'pijakanmu.id', 'jl terusan kenanga, gayungan, kediri', '085674435556'),
        (5, 'afrareyy3', 6, 'kebutuhanmu.id', 'jl anak bunga, wiyung, tuban', '087789889550');
@@ -119,7 +119,7 @@ select * from Toko;
        
 insert into Penjual_has_Produk (id_penjual, id_produk, Username)
 values 	(9,1, 'fathiabrnsa'),
-		(2,2, 'cakaradh'),
+	(2,2, 'cakaradh'),
         (5,3, 'mgennad0'),
         (7,4, 'calistazlf'),
         (6,5, 'afrareyy3');
@@ -127,14 +127,14 @@ select * from Penjual_has_Produk;
         
 insert into Toko_has_Produk(id_Toko, id_Produk)
 values	(1,1),(1,2),(1,3),
-		(2,4),(2,5),(2,6),
+	(2,4),(2,5),(2,6),
         (3,7),(3,8),(3,9),
         (4,10),(4,11),(4,12);
 select * from Toko_has_Produk;
         
 insert into User(Username, No_telpon, Nama, Password, Alamat, Jenis_kelamin)
 values 	('a.fathian_', '085678452289', 'Aftbah Fathian', 'akufathian', 'Jl kenanga bunga no 4, sukamaju, malang', 'Lk'),
-		('cakaradh', '087905433111', 'Caka Radhitya', 'inicaka', 'Jl danau kenanga no 11, sukasuka, madiun', 'Lk'),
+	('cakaradh', '087905433111', 'Caka Radhitya', 'inicaka', 'Jl danau kenanga no 11, sukasuka, madiun', 'Lk'),
         ('Jazmindra', '081127865990','Jazmi Kalandra' ,'jazmijazmi' ,'jl bunga asoka no 1, mulyorejo, surabaya', 'Lk'),
         ('luthfisqy2', '085663554612','Luthfi Rafisqy' ,'luthfi2' ,'jl bukit danau no 11, deron, jakarta', 'Lk'),
         ('mgennad0', '087897564342','Mikhail Gennadi' ,'mikhaka' ,'jl teluk indah no 2, blimbing, magetan', 'Lk'),
@@ -149,14 +149,14 @@ drop table User;
 
 insert into tunai
 values 	(1, 15000),
-		(4, 20000);
+	(4, 20000);
         
 insert into kredit
 values (2, 30000);
 
 insert into e_money
-values (3, '6080085663554612'),		
-		(5, '6080082786998445');
+values 	(3, '6080085663554612'),		
+	(5, '6080082786998445');
         
 insert into Produk
 values 	(1, 'keripik pisang', 70, (Stok_Awal - Laku), 20, 19000),
@@ -176,8 +176,8 @@ select * from Produk;
 
 insert into Pembeli_has_Produk
 values 	(1,1,'a.fathian_'),
-		(3,2,'Jazmindra'),
-		(4,3,'luthfisqy2'),
+	(3,2,'Jazmindra'),
+	(4,3,'luthfisqy2'),
         (8,4,'denadaprmdh'),
         (10,5,'inarakaaa');
         
@@ -185,10 +185,10 @@ select * from Pembeli_has_Produk;
         
 insert into penjual (id_penjual,Username)
 values 	(2,'cakaradh'),
-		(5,'mgennad0'),
-		(6,'afrareyy3'),
-		(7,'calistazlf'),
-		(9,'fathiabrnsa');
+	(5,'mgennad0'),
+	(6,'afrareyy3'),
+	(7,'calistazlf'),
+	(9,'fathiabrnsa');
 select * from penjual;
         
 
@@ -204,7 +204,7 @@ select * from pembayaran;
     
 insert into pembeli
 values  (1, 'a.fathian_'),
-		(3, 'Jazmindra'),
+	(3, 'Jazmindra'),
         (4, 'luthfisqy2'),
         (8, 'denadaprmdh'),
         (10, 'inarakaaa');
